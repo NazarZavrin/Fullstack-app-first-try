@@ -5,14 +5,13 @@ import './index.css';
 import App from './App';
 import { createContext } from 'react';
 
-const localhostURL = 'http://localhost:5000';
-const serverURL = 'https://fullstack-app-first-try-backend.onrender.com';
-export const URLContext = createContext(serverURL);
+console.log(process.env.REACT_APP_BACKEND_URL);
+export const URLContext = createContext(null);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <URLContext.Provider value={
-    window.location.href.includes("localhost") ? localhostURL : serverURL
+    window.location.href.includes("localhost") ? 'http://localhost:5000' : process.env.REACT_APP_BACKEND_URL
   }>
     <App />
   </URLContext.Provider>
