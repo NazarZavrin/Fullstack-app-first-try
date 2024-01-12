@@ -11,7 +11,7 @@ function App() {
   const requestURL = useContext(URLContext);
   const getText = useCallback(async function () {
     try {
-      //console.log(process.env.REACT_APP_BACKEND_URL);
+      //console.log(process.env.REACT_APP_BACKEND_URL);//
       let response = await fetch(requestURL + '/app-works');
       if (response.ok) {
         let result = await response.text();
